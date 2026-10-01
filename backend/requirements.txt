@@ -1,0 +1,6 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+openai==1.58.1
+qdrant-client==1.12.1
+pymupdf==1.25.1
+mcp==1.30.0  # ห้ามอัปเกรดเป็น 2.x: FastMCP ถูกเปลี่ยนชื่อและ API เปลี่ยน

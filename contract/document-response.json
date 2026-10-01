@@ -1,0 +1,298 @@
+{
+  "_comment": "Mock ของโหมดเอกสาร (workshop 2): ลำดับ SSE event ที่ orchestrator ต้องส่ง ใช้เมื่อ MOCK_MODE=true และคำถามมีคำว่า 'เอกสาร'",
+  "events": [
+    {
+      "event": "activity",
+      "data": {
+        "agent": "planner",
+        "task_id": "plan",
+        "kind": "thinking",
+        "message": "วางแผนงานจากคำขอ"
+      }
+    },
+    {
+      "event": "plan",
+      "data": {
+        "tasks": [
+          {
+            "id": "t1",
+            "agent": "research",
+            "title": "สิทธิลาพักผ่อนและการสะสมวันลา"
+          },
+          {
+            "id": "t2",
+            "agent": "research",
+            "title": "เงื่อนไขการลาป่วยและการเบิกค่ารักษา"
+          },
+          {
+            "id": "t3",
+            "agent": "research",
+            "title": "ขั้นตอนการขอลาและวันลาคงเหลือของ E001"
+          },
+          {
+            "id": "t4",
+            "agent": "docs",
+            "title": "เขียนเอกสาร"
+          }
+        ]
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "planner",
+        "task_id": "plan",
+        "kind": "note",
+        "message": "แตกงานได้ 3 หัวข้อค้นข้อมูล และ 1 งานเขียนเอกสาร"
+      }
+    },
+    {
+      "event": "progress",
+      "data": {
+        "done": 0,
+        "total": 4,
+        "current_task": "สิทธิลาพักผ่อนและการสะสมวันลา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t1",
+        "kind": "thinking",
+        "message": "เริ่มค้นหัวข้อ: สิทธิลาพักผ่อนและการสะสมวันลา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "thinking",
+        "message": "เริ่มค้นหัวข้อ: เงื่อนไขการลาป่วยและการเบิกค่ารักษา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "thinking",
+        "message": "เริ่มค้นหัวข้อ: ขั้นตอนการขอลาและวันลาคงเหลือของ E001"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t1",
+        "kind": "tool_call",
+        "message": "ค้นเอกสาร: ลาพักผ่อน สะสมวันลา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "tool_call",
+        "message": "ค้นเอกสาร: ลาป่วย ใบรับรองแพทย์"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "tool_call",
+        "message": "ค้นเอกสาร: ขั้นตอนขออนุมัติการลา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t1",
+        "kind": "tool_result",
+        "message": "เจอ 5 ส่วน ใช้ 1 ส่วน (รอบที่ 1)"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "tool_call",
+        "message": "ดึงวันลาคงเหลือจากระบบ HR"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "tool_result",
+        "message": "เจอ 5 ส่วน ใช้ 1 ส่วน ยังขาดเรื่องการเบิกค่ารักษา (รอบที่ 1)"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t1",
+        "kind": "note",
+        "message": "ได้ข้อมูล 2 ข้อ"
+      }
+    },
+    {
+      "event": "progress",
+      "data": {
+        "done": 1,
+        "total": 4,
+        "current_task": "เงื่อนไขการลาป่วยและการเบิกค่ารักษา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "tool_result",
+        "message": "ได้วันลาคงเหลือของ E001 จากระบบ HR"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "tool_call",
+        "message": "ค้นเอกสาร: เบิกค่ารักษาพยาบาล ใบรับรองแพทย์"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "tool_result",
+        "message": "เจอ 5 ส่วน ใช้ 1 ส่วน (รอบที่ 1)"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t3",
+        "kind": "note",
+        "message": "ได้ข้อมูล 2 ข้อ และข้อมูลจากระบบ 1 รายการ"
+      }
+    },
+    {
+      "event": "progress",
+      "data": {
+        "done": 2,
+        "total": 4,
+        "current_task": "เงื่อนไขการลาป่วยและการเบิกค่ารักษา"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "tool_result",
+        "message": "เจอ 5 ส่วน ใช้ 1 ส่วน (รอบที่ 2)"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "research",
+        "task_id": "t2",
+        "kind": "note",
+        "message": "ได้ข้อมูล 2 ข้อ ไม่พบเงื่อนไขของพนักงานชั่วคราว"
+      }
+    },
+    {
+      "event": "progress",
+      "data": {
+        "done": 3,
+        "total": 4,
+        "current_task": "เขียนเอกสาร"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "docs",
+        "task_id": "t4",
+        "kind": "thinking",
+        "message": "เริ่มเขียนเอกสารจาก 3 หัวข้อ"
+      }
+    },
+    {
+      "event": "activity",
+      "data": {
+        "agent": "docs",
+        "task_id": "t4",
+        "kind": "note",
+        "message": "เขียนเสร็จ 5 หัวข้อ"
+      }
+    },
+    {
+      "event": "progress",
+      "data": {
+        "done": 4,
+        "total": 4,
+        "current_task": "เขียนเอกสาร"
+      }
+    },
+    {
+      "event": "document",
+      "data": {
+        "title": "คู่มือสิทธิการลาสำหรับพนักงานใหม่",
+        "markdown": "## การลาพักผ่อน\n\nพนักงานที่ทำงานครบหนึ่งปีลาพักผ่อนได้ปีละ 10 วันทำงาน และสะสมวันที่ไม่ได้ใช้ไปปีถัดไปได้ไม่เกิน 5 วันทำงาน [1]\n\n## การลาป่วย\n\nการลาป่วยตั้งแต่ 3 วันทำงานขึ้นไปต้องแนบใบรับรองแพทย์ [2] และใช้ใบรับรองแพทย์ฉบับเดียวกันประกอบการเบิกค่ารักษาพยาบาลได้ [3]\n\n## ขั้นตอนการขอลา\n\n- ยื่นคำขอลาพักผ่อนผ่านระบบบุคคลล่วงหน้าอย่างน้อย 3 วันทำงาน [4]\n- หัวหน้างานพิจารณาคำขอลาภายใน 2 วันทำงาน [4]\n\n## วันลาคงเหลือ\n\nข้อมูลจากระบบ HR: พนักงาน E001 เหลือวันลาพักผ่อน 6 วัน และใช้วันลาป่วยไปแล้ว 2 วัน\n\n## พนักงานชั่วคราว\n\nไม่พบข้อมูลในเอกสาร"
+      }
+    },
+    {
+      "event": "citations",
+      "data": {
+        "citations": [
+          {
+            "id": 1,
+            "doc_id": "leave-handbook",
+            "filename": "leave-handbook.pdf",
+            "page": 2,
+            "quote": "พนักงานที่ทำงานครบหนึ่งปีมีสิทธิลาพักผ่อนประจำปีได้ปีละ 10 วันทำงาน"
+          },
+          {
+            "id": 2,
+            "doc_id": "leave-handbook",
+            "filename": "leave-handbook.pdf",
+            "page": 3,
+            "quote": "การลาป่วยตั้งแต่ 3 วันทำงานขึ้นไป ต้องแนบใบรับรองแพทย์ประกอบการลา"
+          },
+          {
+            "id": 3,
+            "doc_id": "welfare-handbook",
+            "filename": "welfare-handbook.pdf",
+            "page": 3,
+            "quote": "หากพนักงานลาป่วยและเข้ารับการรักษา ให้ใช้ใบรับรองแพทย์ฉบับเดียวกันประกอบทั้งการลาและการเบิกได้"
+          },
+          {
+            "id": 4,
+            "doc_id": "leave-handbook",
+            "filename": "leave-handbook.pdf",
+            "page": 4,
+            "quote": "การลาพักผ่อนต้องยื่นคำขอผ่านระบบบุคคลล่วงหน้าอย่างน้อย 3 วันทำงาน"
+          }
+        ]
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ]
+}
